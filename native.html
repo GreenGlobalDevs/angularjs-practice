@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Hello JavaScript</title>
+  </head>
+  <body>
+
+    <div>
+      <label>Name:</label>
+      <input type="text" id="textName" value="" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello, <span id="viewName"></span>!</h1>
+    </div>
+
+    <script>
+
+        document.getElementById('textName').onkeyup = function(){
+            var name = this.value;
+            document.getElementById('viewName').innerHTML = name;
+        }
+
+    </script>
+  </body>
+</html>

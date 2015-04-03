@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <title>Hello jQuery</title>
+  </head>
+  <body>
+
+    <div>
+      <label>Name:</label>
+      <input type="text" id="textName" value="" placeholder="Enter a name here">
+      <hr>
+      <h1>Hello, <span id="viewName"></span>!</h1>
+    </div>
+
+    <script src="/public/js/libs/jquery-2.1.3.min.js"></script>
+    <script>
+
+      $('#textName').on('keyup', function(){
+            var name = $('#textName').val();
+            $('#viewName').html(name);
+      });
+
+    </script>
+  </body>
+</html>

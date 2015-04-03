@@ -1,0 +1,98 @@
+.navbar-header a.navbar-brand{
+    font-weight: 800;
+    font-size: 27px;
+}
+
+.container.main{
+    padding-top: 60px;
+    min-height: 1000px;
+}
+
+ul.dropdown-menu.filter-dropdown{
+    padding: 2px !important;
+}
+.dropdown-option{
+    display: block;
+    cursor: default;
+    padding: 5px 10px;
+}
+.dropdown-option:hover{
+    background-color: navy;
+    color: #fefefe;
+}
+
+tr{
+    cursor: default;
+}
+tr.lv-Superstar{
+    background-color: lightgoldenrodyellow;
+}
+tr.lv-Superstar:hover{
+    background-color: lightyellow !important;
+}
+
+.player-item{
+    margin-bottom: 20px;
+    background-color: #eee;
+    padding: 10px 0px;
+    height: 84px;
+    position: relative;
+    cursor: default;
+}
+.player-item.lv-Superstar{
+    background-color: lightgoldenrodyellow;
+}
+
+.player-item .avatar{
+    width: 64px;
+    height: 64px;
+    margin: 0px 10px;
+}
+.player-item label{
+    display: block;
+}
+.player-item .info{
+    display: block;
+}
+.player-item .star-icon{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.related-list .player-item{
+    margin-bottom: 5px;
+    padding: 5px 0px;
+    height: 60px;
+    background-color: transparent !important;
+}
+.related-list .avatar{
+    width: 48px;
+    height: 48px;
+    margin: 0px 10px;
+}
+
+
+.player-detail .avatar{
+    width: 160px;
+    height: 160px;
+    margin: 0px 10px;
+}
+.player-detail label{
+    display: block;
+    font-size: 25px;
+}
+.player-detail .info{
+    display: block;
+}
+.player-detail .content{
+    display: block;
+    padding: 10px;
+}
+
+.align-center{
+    text-align: center;
+}
+dir-pagination-controls{
+    display: inline-block;
+}
