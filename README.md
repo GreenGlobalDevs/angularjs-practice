@@ -54,6 +54,19 @@ server {
 }
 ```
 
+For the case you are using Apache server:
+
+```
+Listen 80
+
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+    DocumentRoot /var/www/html/angularjs-practice/
+    ServerName angularjs.me
+</VirtualHost>
+```
+
 If everything is OK, it would work for you.
 
 
