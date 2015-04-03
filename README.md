@@ -5,6 +5,19 @@ Start working with AngularJS
 
 ###Installation:
 
+Get the source code:
+
+```
+git clone git@github.com:GreenGlobalDevs/angularjs-practice.git
+```
+
+Then, please create your own branch and switch into there, so that you can do our homework without affecting to master branch.
+
+```
+git branch YOURNAME
+git checkout YOURNAME
+```
+
 After cloning this repository, you would need to add a fake domain within your hosts file. For example:
 
 ```
