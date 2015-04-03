@@ -1,10 +1,9 @@
 # angularjs-practice
 Start working with AngularJS
 
-REST API: https://angular-1-ndaidong.c9.io/players
 
 
-Installation:
+###Installation:
 
 After cloning this repository, you would need to add a fake domain within your hosts file. For example:
 
@@ -43,3 +42,9 @@ server {
 ```
 
 If everything is OK, it would work for you.
+
+
+###Data source
+
+REST API --> https://angular-1-ndaidong.c9.io/players
+
