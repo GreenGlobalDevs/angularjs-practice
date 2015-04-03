@@ -18,6 +18,8 @@ git branch YOURNAME
 git checkout YOURNAME
 ```
 
+###Configuration
+
 After cloning this repository, you would need to add a fake domain within your hosts file. For example:
 
 ```
