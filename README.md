@@ -74,5 +74,6 @@ If everything is OK, it would work for you.
 
 ###Data source
 
-REST API --> https://angular-1-ndaidong.c9.io/players
+REST API --> http://ng-api.techpush.me/
+Guide: https://github.com/GreenGlobalDevs/ng-api/blob/master/README.md
 
