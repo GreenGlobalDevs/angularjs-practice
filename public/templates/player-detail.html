@@ -1,0 +1,34 @@
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="player-detail">
+                        <img ng-src="{{main.player.avatar}}" align="left" class="avatar">
+                        <label>{{main.player.name}}</label>
+                        <span class="info"><i>Nationality:</i> {{main.player.nationality}}</span>
+                        <span class="info"><i>Club:</i> {{main.player.club}}</span>
+                        <span class="info"><i>Position:</i> {{main.player.position}}</span>
+                        <span class="info"><i>Age:</i> {{main.player.age}} ({{main.player.birthday}})</span>
+                        <span class="info"><i>Height:</i> {{main.player.height}} cm</span>
+                        <span class="info"><i>Weight:</i> {{main.player.weight}} kg</span>
+                        <div class="content">
+                            <br>
+                            <p>{{main.player.name}} is a {{main.player.title}} footballer who is playing for {{main.player.club}}.</p>
+                            <p>He was bord on {{main.player.birthday}} in {{main.player.nationality}}.</p>
+                            <p>{{main.player.story}}</p>
+                            <p>You might need to spend {{main.player.dollar}} to get him.</p>
+                        </div>
+                        <div class="content">
+                            <a href="#players">Back to list of players</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h4>You may also like these players</h4>
+                    <div class="related-list">
+                        <div class="player-item lv-{{person.level}}" ng-repeat="person in main.relatedPlayers" ng-hide="person.id==main.player.id">
+                            <img ng-src="{{person.avatar}}" align="left" alt="{{person.name}}" class="avatar img-thumbnail">
+                            <label><a href="#players/{{person.id}}">{{person.name}}</a></label>
+                            <span class="info">{{person.position}}, {{person.age}}, {{person.dollar}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
