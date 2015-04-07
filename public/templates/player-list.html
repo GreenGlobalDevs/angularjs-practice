@@ -1,64 +1,60 @@
-            <div class="row">
-                <div class="col-md-12 align-center">
-                    <dir-pagination-controls
-                        template-url="/public/js/directives/pagination/dirPagination.tpl.html"
-                        on-page-change="main.loadPage(newPageNumber)"
-                        pagination-id="listOfPlayers"></dir-pagination-controls>
+        <div class="row">
+            <div class="col-md-12 align-center">
+                <dir-pagination-controls
+                      template-url="/public/js/directives/pagination/dirPagination.tpl.html"
+                      on-page-change="main.getPlayers(newPageNumber)"
+                      pagination-id="listOfPlayers">
+                </dir-pagination-controls>
+            </div>
+        </div>
+
+        <div class="table-responsive" ng-show="main.layout=='list'">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Height</th>
+                        <th>Weight</th>
+                        <th>Nationality</th>
+                        <th>Club</th>
+                        <th>Position</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="lv-{{person.level}}"
+                        dir-paginate="person in main.players | orderBy:main.order.key:main.order.reverse | itemsPerPage: main.everyPage"
+                        total-items="main.totalPlayer"
+                        pagination-id="listOfPlayers">
+                        <td>
+                            <a href="#players/{{person.id}}">{{person.name}}</a>
+                            <span class="glyphicon glyphicon-star ng-hide" ng-show="main.isStar(person)"></span>
+                        </td>
+                        <td align="right">{{person.age}}</td>
+                        <td align="right">{{person.height}} cm</td>
+                        <td align="right">{{person.weight}} kg</td>
+                        <td>{{person.nationality}}</td>
+                        <td>{{person.club}}</td>
+                        <td align="center">{{person.position}}</td>
+                        <td align="right">{{person.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row" ng-show="main.layout=='grid'">
+            <div
+                class="col-md-4"
+                dir-paginate="person in main.players | orderBy:main.order.key:main.order.reverse | itemsPerPage: main.everyPage"
+                total-items="main.totalPlayer"
+                pagination-id="listOfPlayers">
+                 <div class="player-item lv-{{person.level}}">
+                    <span class="glyphicon glyphicon-star ng-hide star-icon" ng-show="main.isStar(person)"></span>
+                    <img ng-src="{{person.avatar}}" align="left" alt="{{person.name}}" class="avatar img-thumbnail">
+                    <label><a href="#players/{{person.id}}">{{person.name}}</a></label>
+                    <span class="info">{{person.age}}, {{person.nationality}}</span>
+                    <span class="info">{{person.club}}, {{person.position}}</span>
                 </div>
             </div>
-
-            <div class="table-responsive" ng-show="main.layout=='list'">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Age</th>
-                            <th>Height</th>
-                            <th>Weight</th>
-                            <th>Nationality</th>
-                            <th>Club</th>
-                            <th>Position</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr
-                            dir-paginate="person in main.players
-                                            | orderBy:main.order.key:main.order.reverse
-                                            | itemsPerPage: main.pageSize"
-                            pagination-id="listOfPlayers"
-                            total-items="main.totalItems"
-                            class="lv-{{person.level}}">
-                            <td>
-                                <a href="#players/{{person.id}}">{{person.name}}</a>
-                                <span class="glyphicon glyphicon-star ng-hide" ng-show="main.isStar(person)"></span>
-                            </td>
-                            <td align="right">{{person.age}}</td>
-                            <td align="right">{{person.height}} cm</td>
-                            <td align="right">{{person.weight}} kg</td>
-                            <td>{{person.nationality}}</td>
-                            <td>{{person.club}}</td>
-                            <td align="center">{{person.position}}</td>
-                            <td align="right">{{person.dollar}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="row" ng-show="main.layout=='grid'">
-                <div
-                     dir-paginate="person in main.players
-                                            | orderBy:main.order.key:main.order.reverse
-                                            | itemsPerPage: main.pageSize"
-                     pagination-id="listOfPlayers"
-                     total-items="main.totalItems"
-                     class="col-md-4">
-                     <div class="player-item lv-{{person.level}}">
-                        <span class="glyphicon glyphicon-star ng-hide star-icon" ng-show="main.isStar(person)"></span>
-                        <img ng-src="{{person.avatar}}" align="left" alt="{{person.name}}" class="avatar img-thumbnail">
-                        <label><a href="#players/{{person.id}}">{{person.name}}</a></label>
-                        <span class="info">{{person.age}}, {{person.nationality}}</span>
-                        <span class="info">{{person.club}}, {{person.position}}</span>
-                    </div>
-                </div>
-            </div>
+        </div>

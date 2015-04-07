@@ -14,7 +14,7 @@
                             <p>{{main.player.name}} is a {{main.player.title}} footballer who is playing for {{main.player.club}}.</p>
                             <p>He was bord on {{main.player.birthday}} in {{main.player.nationality}}.</p>
                             <p>{{main.player.story}}</p>
-                            <p>You might need to spend {{main.player.dollar}} to get him.</p>
+                            <p>You might need to spend {{main.player.price}} to get him.</p>
                         </div>
                         <div class="content">
                             <a href="#players">Back to list of players</a>
@@ -22,13 +22,15 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <h4>You may also like these players</h4>
+                    <h3>Related players</h4>
                     <div class="related-list">
-                        <div class="player-item lv-{{person.level}}" ng-repeat="person in main.relatedPlayers" ng-hide="person.id==main.player.id">
-                            <img ng-src="{{person.avatar}}" align="left" alt="{{person.name}}" class="avatar img-thumbnail">
-                            <label><a href="#players/{{person.id}}">{{person.name}}</a></label>
-                            <span class="info">{{person.position}}, {{person.age}}, {{person.dollar}}</span>
-                        </div>
+
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>You may like these 12 most expensive {{main.player.position}}:</h3>
                 </div>
             </div>

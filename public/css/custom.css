@@ -72,6 +72,9 @@ tr.lv-Superstar:hover{
     margin: 0px 10px;
 }
 
+.player-detail{
+    padding-top: 20px;
+}
 
 .player-detail .avatar{
     width: 160px;

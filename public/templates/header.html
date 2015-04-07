@@ -2,18 +2,20 @@
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-              <a class="navbar-brand" href="/">{{main.title}}</a>
+              <a class="navbar-brand" href="#/players">{{main.title}}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
               <form class="navbar-form" role="search"  ng-submit="main.search()">
+                <!-- Search input -->
                 <span class="input-group">
                   <input type="text" class="form-control" placeholder="Search for..."  ng-model="main.searchInput">
                   <span class="input-group-btn">
                     <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
                   </span>
                 </span>
+                <!-- Sort button -->
                 <span class="btn-group" dropdown>
                   <span type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
                     <span class="glyphicon glyphicon-sort"></span> Sort <span class="caret"></span>
@@ -24,6 +26,7 @@
                     </li>
                   </ul>
                 </span>
+                <!-- Layout buttons -->
                 <span class="btn-group">
                     <span class="btn btn-default glyphicon glyphicon-th" ng-class="{'btn-primary': main.layout == 'grid'}" ng-click="main.switchLayout()"></span>
                     <span class="btn btn-default glyphicon glyphicon-list" ng-class="{'btn-primary': main.layout == 'list'}" ng-click="main.switchLayout()"></span>

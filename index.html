@@ -12,22 +12,24 @@
 
         <ng-include src="'/public/templates/header.html'"></ng-include>
 
-        <div class="row">
+                <div class="row">
             <div class="col-md-12 align-center">
                 <dir-pagination-controls
                       template-url="/public/js/directives/pagination/dirPagination.tpl.html"
-                      on-page-change="main.loadPage(newPageNumber)"
+                      on-page-change="main.getPlayers(newPageNumber)"
                       pagination-id="listOfPlayers">
                 </dir-pagination-controls>
             </div>
         </div>
 
         <div class="table-responsive">
-            <table class="table table-striped table-bordered">
+            <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Age</th>
+                        <th>Height</th>
+                        <th>Weight</th>
                         <th>Nationality</th>
                         <th>Club</th>
                         <th>Position</th>
@@ -35,24 +37,32 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr dir-paginate="person in main.players | itemsPerPage: main.everyPage"
+                    <tr class="lv-{{person.level}}"
+                        dir-paginate="person in main.players | orderBy:main.order.key:main.order.reverse | itemsPerPage: main.everyPage"
                         total-items="main.totalPlayer"
                         pagination-id="listOfPlayers">
-                        <td>{{person.name}}</td>
-                        <td>{{person.age}}</td>
+                        <td>
+                            <a href="#players/{{person.id}}">{{person.name}}</a>
+                            <span class="glyphicon glyphicon-star ng-hide" ng-show="main.isStar(person)"></span>
+                        </td>
+                        <td align="right">{{person.age}}</td>
+                        <td align="right">{{person.height}} cm</td>
+                        <td align="right">{{person.weight}} kg</td>
                         <td>{{person.nationality}}</td>
                         <td>{{person.club}}</td>
-                        <td>{{person.position}}</td>
-                        <td>{{person.price}}</td>
+                        <td align="center">{{person.position}}</td>
+                        <td align="right">{{person.price}}</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
+
     </div>
-    <script src="/public/js/angularjs/angular.min.js"></script>
-    <script src="/public/js/directives/pagination/dirPagination.js"></script>
-    <script src="/public/js/app.js"></script>
-    <script src="/public/js/main.ctrl.js"></script>
+    <script type="text/javascript" src="/public/js/angularjs/angular.min.js"></script>
+    <script type="text/javascript" src="/public/js/directives/pagination/dirPagination.js"></script>
+    <script type="text/javascript" src="/public/js/libs/accounting.min.js"></script>
+    <script type="text/javascript" src="/public/js/app.js"></script>
+    <script type="text/javascript" src="/public/js/main.ctrl.js"></script>
   </body>
 </html>
