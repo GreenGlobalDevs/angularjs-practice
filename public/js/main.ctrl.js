@@ -80,26 +80,62 @@
         vm.orders = [
             {
                 id: 1,
-                title: 'Price: Ascendent',
-                key: 'price',
+                title: 'Name: A-Z',
+                key: 'name',
                 direction: 'ASC'
             },
             {
                 id: 2,
-                title: 'Price: Descendent',
-                key: 'price',
+                title: 'Name: Z-A',
+                key: 'name',
                 direction: 'DESC'
             },
             {
                 id: 3,
-                title: 'Age: Ascendent',
-                key: 'age',
+                title: 'Price: Ascending',
+                key: 'price',
                 direction: 'ASC'
             },
             {
                 id: 4,
-                title: 'Age: Descendent',
+                title: 'Price: Descending',
+                key: 'price',
+                direction: 'DESC'
+            },
+            {
+                id: 5,
+                title: 'Age: Ascending',
                 key: 'age',
+                direction: 'ASC'
+            },
+            {
+                id: 6,
+                title: 'Age: Descending',
+                key: 'age',
+                direction: 'DESC'
+            },
+            {
+                id: 7,
+                title: 'Height: Ascending',
+                key: 'height',
+                direction: 'ASC'
+            },
+            {
+                id: 8,
+                title: 'Height: Descending',
+                key: 'height',
+                direction: 'DESC'
+            },
+            {
+                id: 9,
+                title: 'Weight: Ascending',
+                key: 'weight',
+                direction: 'ASC'
+            },
+            {
+                id: 10,
+                title: 'Weight: Descending',
+                key: 'weight',
                 direction: 'DESC'
             }
         ];
@@ -137,16 +173,3 @@
     }
 
 })();
-
-
-
-
-
-
-
-
-
-
-
-
-
