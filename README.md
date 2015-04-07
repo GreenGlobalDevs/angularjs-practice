@@ -74,6 +74,5 @@ If everything is OK, it would work for you.
 
 ###Data source
 
-REST API --> https://ng-api-ndaidong.c9.io/
-Guide: https://github.com/GreenGlobalDevs/ng-api/blob/master/README.md
+REST API --> https://github.com/GreenGlobalDevs/ng-api
 
