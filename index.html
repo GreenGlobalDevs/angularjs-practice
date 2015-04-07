@@ -16,6 +16,7 @@
             <div class="col-md-12 align-center">
                 <dir-pagination-controls
                       template-url="/public/js/directives/pagination/dirPagination.tpl.html"
+                      on-page-change="main.loadPage(newPageNumber)"
                       pagination-id="listOfPlayers">
                 </dir-pagination-controls>
             </div>
@@ -34,8 +35,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr dir-paginate="person in main.players | itemsPerPage:30"
-                      pagination-id="listOfPlayers">
+                    <tr dir-paginate="person in main.players | itemsPerPage: main.everyPage"
+                        total-items="main.totalPlayer"
+                        pagination-id="listOfPlayers">
                         <td>{{person.name}}</td>
                         <td>{{person.age}}</td>
                         <td>{{person.nationality}}</td>
@@ -45,9 +47,8 @@
                     </tr>
                 </tbody>
             </table>
-
-
         </div>
+
     </div>
     <script src="/public/js/angularjs/angular.min.js"></script>
     <script src="/public/js/directives/pagination/dirPagination.js"></script>
