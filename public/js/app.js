@@ -8,6 +8,7 @@
     'use strict';
 
     angular.module('app', [
+        'ui.bootstrap',
         'angularUtils.directives.dirPagination'
     ]);
 

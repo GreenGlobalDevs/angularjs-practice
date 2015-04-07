@@ -47,7 +47,7 @@
             var order = vm.order;
             if(order){
                 url+='&_sort='+order.key;
-                url+='&_order='+(order.reverse===true?'DESC':'ASC');
+                url+='&_order='+order.direction.toLowerCase();
             }
 
             $http.get(url).success(function(data){
@@ -71,7 +71,82 @@
         vm.getPlayers(1);
 
 
+        // search
+        vm.search = function(){
+            vm.getPlayers(1);
+        }
+
+        // sort
+        vm.orders = [
+            {
+                id: 1,
+                title: 'Price: Ascendent',
+                key: 'price',
+                direction: 'ASC'
+            },
+            {
+                id: 2,
+                title: 'Price: Descendent',
+                key: 'price',
+                direction: 'DESC'
+            },
+            {
+                id: 3,
+                title: 'Age: Ascendent',
+                key: 'age',
+                direction: 'ASC'
+            },
+            {
+                id: 4,
+                title: 'Age: Descendent',
+                key: 'age',
+                direction: 'DESC'
+            }
+        ];
+
+        vm.sort = function(e){
+            var selected;
+            var opt = e.target.getAttribute('opt');
+            for(var i=0; i< vm.orders.length; i++){
+                var item = vm.orders[i];
+                if(item.id==opt){
+                    selected = item;
+                    break;
+                }
+            }
+
+            if(selected){
+                vm.order = selected;
+                vm.getPlayers(vm.currentPage);
+            }
+        }
+
+        // layout
+        vm.layout = 'list';
+        vm.switchLayout = function(){
+            var tmp = vm.layout==='grid'?'list':'grid';
+            vm.layout = tmp;
+        }
+
+        // check if player is start
+
+        vm.isStar = function(player){
+            return player.level=='Star' || player.level=='Superstar';
+        }
 
     }
 
 })();
+
+
+
+
+
+
+
+
+
+
+
+
+
