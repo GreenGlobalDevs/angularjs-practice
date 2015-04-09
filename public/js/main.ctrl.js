@@ -8,7 +8,41 @@
 
     angular
     .module('app')
-    .controller('MainController', MainController);
+    .controller('MainController', MainController)
+    .config(initRouter)
+    .directive(
+        'copyright',
+        function(){
+            return {
+                restrict: 'AE',
+                templateUrl: '/public/templates/footer.html'
+            }
+        }
+    );
+
+    function initRouter($stateProvider, $urlRouterProvider){
+        $urlRouterProvider.otherwise('/players');
+        $stateProvider
+            .state(
+                'playerListing',
+                {
+                    url: '/players',
+                    templateUrl: '/public/templates/player-list.html'
+                }
+            )
+            .state(
+                'playerDetail',
+                {
+                    url: '/players/:id',
+                    templateUrl: '/public/templates/player-detail.html',
+                    controller: function($scope, $stateParams){
+                        var id = $stateParams.id;
+                        $scope.$emit('route', {playerId: id});
+                    }
+                }
+            )
+
+    }
 
     var toTop = function(){
         document.body.scrollTop = document.documentElement.scrollTop = 0;
@@ -20,9 +54,29 @@
         var vm = this;
         var apiURL = 'http://ng-api.techpush.me/players';
 
+
+        $scope.$on('route', function(e, data){
+            var playerId = data.playerId;
+            vm.getPlayer(playerId);
+        });
+
+
         vm.title = 'Transfer Market';
 
         vm.players = [];
+
+        vm.player = {};
+
+        vm.getPlayer = function(id){
+            var url = apiURL+'/'+id;
+            $http.get(url).success(function(data){
+                if(!data.error){
+                    vm.player = data.player;
+                    toTop();
+                }
+            });
+
+        }
 
         // pagination
         vm.everyPage = 30;
@@ -165,7 +219,6 @@
         }
 
         // check if player is start
-
         vm.isStar = function(player){
             return player.level=='Star' || player.level=='Superstar';
         }
